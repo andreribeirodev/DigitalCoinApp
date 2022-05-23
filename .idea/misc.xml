@@ -3,7 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/aribesil/AndroidStudioProjects/moedasdigitais/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/aribesil/AndroidStudioProjects/moedasdigitais/app/src/main/res/drawable/ic_coin.xml" value="0.186" />
+        <entry key="..\:/Users/aribesil/AndroidStudioProjects/moedasdigitais/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/aribesil/AndroidStudioProjects/moedasdigitais/app/src/main/res/layout/fragment_coin_list.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/aribesil/AndroidStudioProjects/moedasdigitais/app/src/main/res/layout/fragment_favorite_coin.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/aribesil/AndroidStudioProjects/moedasdigitais/app/src/main/res/layout/fragment_list_coin.xml" value="0.1" />
+        <entry key="..\:/Users/aribesil/AndroidStudioProjects/moedasdigitais/app/src/main/res/menu/menu_nav.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/aribesil/AndroidStudioProjects/moedasdigitais/app/src/main/res/menu/menu_nav_2.xml" value="0.19166666666666668" />
       </map>
     </option>
   </component>
@@ -12,5 +18,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.22" />
+      </ProjectState>
+    </option>
   </component>
 </project>

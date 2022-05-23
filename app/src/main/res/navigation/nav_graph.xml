@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/listCoinFragment">
+
+    <fragment
+        android:id="@+id/listCoinFragment"
+        android:name="com.andreribeiro.moedasdigitais.ListCoinFragment"
+        android:label="fragment_list_coin"
+        tools:layout="@layout/fragment_list_coin" >
+        <action
+            android:id="@+id/action_listCoinFragment_to_favoriteCoinFragment"
+            app:destination="@id/favoriteCoinFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/favoriteCoinFragment"
+        android:name="com.andreribeiro.moedasdigitais.FavoriteCoinFragment"
+        android:label="fragment_favorite_coin"
+        tools:layout="@layout/fragment_favorite_coin" />
+</navigation>
