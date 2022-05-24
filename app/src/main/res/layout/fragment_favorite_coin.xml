@@ -4,15 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FavoriteCoinFragment">
+    tools:context="ui.FavoriteCoinFragment">
 
+    <View
+        android:id="@+id/viewDividerFavorite"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#8c975b"
+        android:elevation="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="MOEDAS FAVORITAS"
-        android:textSize="24sp"
+        android:background="@color/black"
         android:gravity="center"
+        android:text="MOEDAS FAVORITAS"
+        android:textColor="#8c975b"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
