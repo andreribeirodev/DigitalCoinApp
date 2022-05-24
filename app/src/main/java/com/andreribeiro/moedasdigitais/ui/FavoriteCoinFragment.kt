@@ -1,11 +1,15 @@
-package com.andreribeiro.moedasdigitais
+package com.andreribeiro.moedasdigitais.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+<<<<<<< HEAD:app/src/main/java/com/andreribeiro/moedasdigitais/FavoriteCoinFragment.kt
 import androidx.fragment.app.Fragment
 import com.andreribeiro.moedadigital.R
+=======
+import com.andreribeiro.moedasdigitais.R
+>>>>>>> feature/layouts:app/src/main/java/com/andreribeiro/moedasdigitais/ui/FavoriteCoinFragment.kt
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -14,10 +18,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [ListCoinFragment.newInstance] factory method to
+ * Use the [FavoriteCoinFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class ListCoinFragment : Fragment() {
+class FavoriteCoinFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -36,7 +40,7 @@ class ListCoinFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list_coin, container, false)
+        return inflater.inflate(R.layout.fragment_favorite_coin, container, false)
     }
 
     companion object {
@@ -46,12 +50,12 @@ class ListCoinFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment ListCoinFragment.
+         * @return A new instance of fragment FavoriteCoinFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            ListCoinFragment().apply {
+            FavoriteCoinFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

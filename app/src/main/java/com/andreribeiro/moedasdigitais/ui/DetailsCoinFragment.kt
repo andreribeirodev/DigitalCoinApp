@@ -1,11 +1,15 @@
-package com.andreribeiro.moedasdigitais
+package com.andreribeiro.moedasdigitais.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+<<<<<<< HEAD:app/src/main/java/com/andreribeiro/moedasdigitais/DetailsCoinFragment.kt
 import com.andreribeiro.moedadigital.R
+=======
+import com.andreribeiro.moedasdigitais.R
+>>>>>>> feature/layouts:app/src/main/java/com/andreribeiro/moedasdigitais/ui/DetailsCoinFragment.kt
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
