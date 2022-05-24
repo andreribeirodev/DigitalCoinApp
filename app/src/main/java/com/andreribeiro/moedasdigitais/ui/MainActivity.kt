@@ -1,9 +1,10 @@
-package com.andreribeiro.moedasdigitais
+package com.andreribeiro.moedasdigitais.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.andreribeiro.moedasdigitais.R
 import com.andreribeiro.moedasdigitais.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
