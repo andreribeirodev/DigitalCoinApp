@@ -4,7 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.andreribeiro.moedasdigitais.databinding.ActivityMainBinding
+import com.andreribeiro.moedadigital.R
+import com.andreribeiro.moedadigital.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
