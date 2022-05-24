@@ -4,13 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-<<<<<<< HEAD:app/src/main/java/com/andreribeiro/moedasdigitais/MainActivity.kt
-import com.andreribeiro.moedadigital.R
-import com.andreribeiro.moedadigital.databinding.ActivityMainBinding
-=======
 import com.andreribeiro.moedasdigitais.R
 import com.andreribeiro.moedasdigitais.databinding.ActivityMainBinding
->>>>>>> feature/layouts:app/src/main/java/com/andreribeiro/moedasdigitais/ui/MainActivity.kt
 
 class MainActivity : AppCompatActivity() {
 
