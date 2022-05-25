@@ -12,8 +12,8 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageViewCoin"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:src="@drawable/ic_launcher_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -26,26 +26,28 @@
             android:layout_marginStart="8dp"
             android:text="Bitcoin"
             android:textColor="@color/white"
-            android:textSize="24sp"
+            android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@id/imageViewCoin"
             app:layout_constraintTop_toTopOf="@id/imageViewCoin" />
 
         <TextView
+            android:id="@+id/textViewCoinSigla"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="BTC"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@+id/imageViewCoin"
             app:layout_constraintStart_toStartOf="@id/textViewCoinName"
             app:layout_constraintTop_toBottomOf="@id/textViewCoinName" />
 
         <TextView
+            android:id="@+id/textViewCoinPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="$31.000,00"
             android:textColor="@color/white"
-            android:textSize="24sp"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/imageViewCoin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/imageViewCoin" />
