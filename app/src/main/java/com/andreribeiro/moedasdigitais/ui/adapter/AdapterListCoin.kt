@@ -6,9 +6,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.andreribeiro.moedasdigitais.databinding.ItemCoinBinding
-import com.andreribeiro.moedasdigitais.model.Coin
+import com.andreribeiro.moedasdigitais.model.CoinModel
 
-class AdapterItemCoin : ListAdapter<Coin, AdapterItemCoin.CoinItemViewHolder>(DIFF_CALLBACK) {
+class AdapterListCoin : ListAdapter<CoinModel, AdapterListCoin.CoinItemViewHolder>(DIFF_CALLBACK) {
 
     var onClickListener: ((coinName: String) -> Unit)? = null
 
@@ -26,10 +26,10 @@ class AdapterItemCoin : ListAdapter<Coin, AdapterItemCoin.CoinItemViewHolder>(DI
         private val onClickListener: ((coinName: String) -> Unit)?
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(coin: Coin) {
+        fun bind(coin: CoinModel) {
             binding.textViewCoinName.text = coin.name
-            binding.textViewCoinPrice.text = coin.price
-            binding.textViewCoinSigla.text = coin.sigla
+            binding.textViewCoinPrice.text = coin.priceUsd.toString()
+            binding.textViewCoinSigla.text = coin.Id
 
             binding.root.setOnClickListener {
                 onClickListener?.invoke(coin.name)
@@ -38,13 +38,13 @@ class AdapterItemCoin : ListAdapter<Coin, AdapterItemCoin.CoinItemViewHolder>(DI
     }
 
     companion object {
-        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Coin>() {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<CoinModel>() {
 
-            override fun areItemsTheSame(oldItem: Coin, newItem: Coin): Boolean {
+            override fun areItemsTheSame(oldItem: CoinModel, newItem: CoinModel): Boolean {
                 return oldItem.name == newItem.name
             }
 
-            override fun areContentsTheSame(oldItem: Coin, newItem: Coin): Boolean {
+            override fun areContentsTheSame(oldItem: CoinModel, newItem: CoinModel): Boolean {
                 return oldItem == newItem
             }
         }
