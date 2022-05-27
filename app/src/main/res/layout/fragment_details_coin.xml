@@ -1,20 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ui.fragment.DetailsCoinFragment">
+    android:orientation="vertical">
 
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:background="#8c975b">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:drawableLeft="@drawable/ic_back"
+            android:text="Voltar"
+            android:textColor="@color/white"
+            android:textSize="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_btc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="BTC"
+            android:textColor="@color/white"
+            android:textSize="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/image_coin"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_btc"
+            app:srcCompat="@android:drawable/ic_dialog_info" />
+        
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/image_coin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/image_coin"
+            app:layout_constraintTop_toTopOf="@id/txt_btc"
+            app:srcCompat="@drawable/ic_star"/>
+
+        <TextView
+            android:id="@+id/txt_coin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="$ 31,010.20"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_coin" />
+
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_button"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="Adicionar"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_coin" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="TELA DE DETALHES"
-        android:textSize="36sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@color/black">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/txt_volumes_negociados"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="volumes negociados"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_hora"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+
+            android:text="última hora:"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toStartOf="@id/txt_volumes_negociados"
+            app:layout_constraintStart_toStartOf="@id/txt_volumes_negociados"
+            app:layout_constraintTop_toBottomOf="@id/txt_volumes_negociados" />
+
+        <TextView
+            android:id="@+id/txt_mes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="última mês:"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/txt_ano"
+            app:layout_constraintStart_toStartOf="@id/txt_hora"
+            app:layout_constraintTop_toBottomOf="@id/txt_hora" />
+
+        <TextView
+            android:id="@+id/txt_ano"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="último ano:"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="@id/txt_mes"
+            app:layout_constraintTop_toBottomOf="@id/txt_mes" />
+
+        <TextView
+            android:id="@+id/txt_valor1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$ 31,010.20"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:layout_constraintTop_toBottomOf="@id/txt_volumes_negociados"
+            app:layout_constraintStart_toEndOf="@id/txt_volumes_negociados"
+            app:layout_constraintEnd_toEndOf="@id/txt_volumes_negociados"
+            android:layout_marginTop="60dp"/>
+
+        <TextView
+            android:id="@+id/txt_valor2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$ 31,010.20"
+            android:textColor="@color/white"
+            android:textSize="24dp"
+            app:layout_constraintTop_toBottomOf="@id/txt_valor1"
+            app:layout_constraintStart_toStartOf="@id/txt_valor1"
+            app:layout_constraintEnd_toEndOf="@id/txt_valor1"
+            android:layout_marginTop="30dp"
+            app:layout_constraintBottom_toTopOf="@id/txt_valor3"/>
+
+        <TextView
+            android:id="@+id/txt_valor3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$ 31,010.20"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:layout_constraintTop_toBottomOf="@id/txt_valor2"
+            app:layout_constraintStart_toStartOf="@id/txt_valor2"
+            app:layout_constraintEnd_toEndOf="@id/txt_valor2"
+            android:layout_marginTop="30dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

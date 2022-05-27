@@ -1,6 +1,9 @@
 package com.andreribeiro.moedasdigitais.model
 
+import com.andreribeiro.moedasdigitais.util.Constants.IMAGE_EXTENSION
+import com.andreribeiro.moedasdigitais.util.Constants.IMAGE_URL
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class CoinModel(
     @SerializedName("asset_id")
@@ -18,10 +21,15 @@ data class CoinModel(
     @SerializedName("price_usd")
     val priceUsd: Float,
     @SerializedName("id_icon")
-    val iconId: String,
+    var iconId: String?,
     @SerializedName("data_start")
     val dataStart: String,
     @SerializedName("data_end")
     val dataEnd: String
 
-)
+) : Serializable {
+    fun cryptoImage(): String {
+        iconId = iconId?.replace("-".toRegex(), "")
+        return "$IMAGE_URL/$iconId$IMAGE_EXTENSION"
+    }
+}

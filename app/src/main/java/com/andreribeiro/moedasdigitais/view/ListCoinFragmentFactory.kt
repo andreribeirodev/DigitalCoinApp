@@ -1,4 +1,4 @@
-package com.andreribeiro.moedasdigitais.ui
+package com.andreribeiro.moedasdigitais.view
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

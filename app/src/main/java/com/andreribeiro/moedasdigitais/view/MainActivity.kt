@@ -1,4 +1,4 @@
-package com.andreribeiro.moedasdigitais.ui
+package com.andreribeiro.moedasdigitais.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
