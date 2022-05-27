@@ -1,4 +1,4 @@
-package com.andreribeiro.moedasdigitais.ui.fragment
+package com.andreribeiro.moedasdigitais.view.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.andreribeiro.moedasdigitais.api.CoinApiClient
 import com.andreribeiro.moedasdigitais.databinding.FragmentListCoinBinding
 import com.andreribeiro.moedasdigitais.repository.CoinRepository
-import com.andreribeiro.moedasdigitais.ui.ListCoinFragmentFactory
-import com.andreribeiro.moedasdigitais.ui.adapter.AdapterListCoin
+import com.andreribeiro.moedasdigitais.view.ListCoinFragmentFactory
+import com.andreribeiro.moedasdigitais.view.adapter.AdapterListCoin
 import com.andreribeiro.moedasdigitais.viewmodel.ListCoinFragmentViewModel
 
 class ListCoinFragment : Fragment() {

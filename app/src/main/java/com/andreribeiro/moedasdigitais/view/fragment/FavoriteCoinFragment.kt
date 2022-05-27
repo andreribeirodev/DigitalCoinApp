@@ -1,4 +1,4 @@
-package com.andreribeiro.moedasdigitais.ui.fragment
+package com.andreribeiro.moedasdigitais.view.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
