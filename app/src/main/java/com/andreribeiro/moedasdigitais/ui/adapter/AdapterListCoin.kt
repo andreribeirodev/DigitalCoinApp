@@ -1,4 +1,4 @@
-package com.andreribeiro.moedasdigitais.view.adapter
+package com.andreribeiro.moedasdigitais.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,11 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.andreribeiro.moedasdigitais.databinding.ItemCoinBinding
 import com.andreribeiro.moedasdigitais.model.CoinModel
 import com.bumptech.glide.Glide
-import kotlinx.coroutines.NonDisposableHandle.parent
 
 class AdapterListCoin : ListAdapter<CoinModel, AdapterListCoin.CoinItemViewHolder>(DIFF_CALLBACK) {
 
-    var onClickListener: ((coinName: String) -> Unit)? = null
+    var onClickListener: ((coinDetails: CoinModel) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CoinItemViewHolder {
         val binding = ItemCoinBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -25,7 +24,7 @@ class AdapterListCoin : ListAdapter<CoinModel, AdapterListCoin.CoinItemViewHolde
 
     inner class CoinItemViewHolder(
         private val binding: ItemCoinBinding,
-        private val onClickListener: ((coinName: String) -> Unit)?
+        private val onClickListener: ((coinDetails: CoinModel) -> Unit)?
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(coin: CoinModel) {
@@ -39,7 +38,7 @@ class AdapterListCoin : ListAdapter<CoinModel, AdapterListCoin.CoinItemViewHolde
                 .into(binding.imageViewCoin)
 
             binding.root.setOnClickListener {
-                onClickListener?.invoke(coin.name)
+                onClickListener?.invoke(coin)
             }
         }
     }

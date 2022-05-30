@@ -1,4 +1,4 @@
-package com.andreribeiro.moedasdigitais.view.fragment
+package com.andreribeiro.moedasdigitais.ui.detailscoin
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -17,8 +17,7 @@ class DetailsCoinFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
+    ): View {
         return inflater.inflate(R.layout.fragment_details_coin, container, false)
     }
 }
