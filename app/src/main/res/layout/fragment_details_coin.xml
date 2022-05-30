@@ -7,7 +7,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="300dp"
         android:background="#8c975b">
 
         <TextView
@@ -18,7 +18,7 @@
             android:drawableLeft="@drawable/ic_back"
             android:text="Voltar"
             android:textColor="@color/white"
-            android:textSize="24dp"
+            android:textSize="18dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,7 +29,7 @@
             android:layout_marginTop="8dp"
             android:text="BTC"
             android:textColor="@color/white"
-            android:textSize="24dp"
+            android:textSize="18dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -60,7 +60,7 @@
             android:layout_marginTop="8dp"
             android:text="$ 31,010.20"
             android:textColor="@color/white"
-            android:textSize="30dp"
+            android:textSize="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/image_coin" />
@@ -73,7 +73,7 @@
             android:paddingBottom="10dp"
             android:text="Adicionar"
             android:textColor="@color/white"
-            android:textSize="24sp"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -102,11 +102,10 @@
             android:id="@+id/txt_hora"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-
+            android:layout_marginTop="30dp"
             android:text="última hora:"
             android:textColor="@color/white"
-            android:textSize="24sp"
+            android:textSize="18sp"
             app:layout_constraintEnd_toStartOf="@id/txt_volumes_negociados"
             app:layout_constraintStart_toStartOf="@id/txt_volumes_negociados"
             app:layout_constraintTop_toBottomOf="@id/txt_volumes_negociados" />
@@ -115,10 +114,10 @@
             android:id="@+id/txt_mes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="24dp"
             android:text="última mês:"
             android:textColor="@color/white"
-            android:textSize="24sp"
+            android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/txt_ano"
             app:layout_constraintStart_toStartOf="@id/txt_hora"
             app:layout_constraintTop_toBottomOf="@id/txt_hora" />
@@ -127,10 +126,10 @@
             android:id="@+id/txt_ano"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="24dp"
             android:text="último ano:"
             android:textColor="@color/white"
-            android:textSize="24sp"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="@id/txt_mes"
             app:layout_constraintTop_toBottomOf="@id/txt_mes" />
 
@@ -138,10 +137,10 @@
             android:id="@+id/txt_valor1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="30dp"
             android:text="$ 31,010.20"
             android:textColor="@color/white"
-            android:textSize="24sp"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="@id/txt_volumes_negociados"
             app:layout_constraintStart_toEndOf="@id/txt_volumes_negociados"
             app:layout_constraintTop_toBottomOf="@id/txt_volumes_negociados" />
@@ -150,10 +149,10 @@
             android:id="@+id/txt_valor2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="24dp"
             android:text="$ 31,010.20"
             android:textColor="@color/white"
-            android:textSize="24dp"
+            android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@id/txt_valor3"
             app:layout_constraintEnd_toEndOf="@id/txt_valor1"
             app:layout_constraintStart_toStartOf="@id/txt_valor1"
@@ -163,10 +162,10 @@
             android:id="@+id/txt_valor3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="24dp"
             android:text="$ 31,010.20"
             android:textColor="@color/white"
-            android:textSize="24sp"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="@id/txt_valor2"
             app:layout_constraintStart_toStartOf="@id/txt_valor2"
             app:layout_constraintTop_toBottomOf="@id/txt_valor2" />
