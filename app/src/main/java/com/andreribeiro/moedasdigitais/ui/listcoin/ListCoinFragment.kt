@@ -49,12 +49,12 @@ class ListCoinFragment : Fragment() {
 
     private fun getCoins() {
         listCoinFragmentViewModel.getCoinList()
-        listCoinFragmentViewModel.coinList.observe(this.viewLifecycleOwner) { coinList ->
+        listCoinFragmentViewModel.coinList.observe(viewLifecycleOwner) { coinList ->
             coinList.let {
                 adapterItemCoin.submitList(coinList)
-                onClickSetup()
             }
         }
+        onClickSetup()
     }
 
     private fun onClickSetup() {
