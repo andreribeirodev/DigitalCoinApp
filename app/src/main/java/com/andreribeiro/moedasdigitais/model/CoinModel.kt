@@ -30,8 +30,13 @@ data class CoinModel(
     val dataEnd: String
 
 ) : Parcelable {
+
     fun cryptoImage(): String {
-        iconId = iconId?.replace("-".toRegex(), "")
-        return "$IMAGE_URL/$iconId$IMAGE_EXTENSION"
+        if (iconId != null) {
+            iconId = iconId?.replace("-".toRegex(), "")
+            return "$IMAGE_URL/$iconId$IMAGE_EXTENSION"
+        } else {
+            return "https://media.atkinsonsbullion.com/AtkinsonsBullion/media/product/auco2614/auco2614_1.png"
+        }
     }
 }

@@ -5,19 +5,45 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.andreribeiro.moedasdigitais.R
+import androidx.navigation.fragment.navArgs
+import com.andreribeiro.moedasdigitais.databinding.FragmentDetailsCoinBinding
+import com.bumptech.glide.Glide
 
 class DetailsCoinFragment : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    private var _binding: FragmentDetailsCoinBinding? = null
+    private val binding: FragmentDetailsCoinBinding get() = _binding!!
+
+    private val args by navArgs<DetailsCoinFragmentArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_details_coin, container, false)
+        _binding = FragmentDetailsCoinBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+//        getDetailsAndPopulateViews()
+    }
+
+//    private fun getDetailsAndPopulateViews() {
+//        val details = args.coinDetails
+//        binding.textViewPriceCoin.text = details.priceUsd.toString()
+//        binding.textViewPriceHours.text = details.volumeHrsUsd.toString()
+//        binding.textViewPriceDay.text = details.volumeDayUsd.toString()
+//        binding.textViewPriceMonth.text = details.volumeMthUsd.toString()
+//        binding.textViewCoinAbreviation.text = details.Id
+//        Glide.with(this)
+//            .load(details.cryptoImage())
+//            .into(binding.imageViewCoin)
+//    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

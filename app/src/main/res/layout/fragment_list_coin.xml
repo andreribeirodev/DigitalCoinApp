@@ -18,6 +18,14 @@
         app:layout_constraintTop_toBottomOf="@id/searchView" />
 
 
+    <include
+        android:id="@+id/incAppNameDate"
+        layout="@layout/part_appname_date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
     <SearchView
         android:id="@+id/searchView"
         android:layout_width="match_parent"
@@ -31,7 +39,7 @@
         android:queryHint="Pesquise uma moeda"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/incAppNameDate" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewCoin"

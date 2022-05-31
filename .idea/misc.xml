@@ -3,12 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/aribesil/AndroidStudioProjects/moedadigital/app/src/main/res/drawable/ic_icon_usd.xml" value="0.233" />
+        <entry key="..\:/Users/aribesil/AndroidStudioProjects/moedadigital/app/src/main/res/drawable/ic_icon_usd_18.xml" value="0.233" />
         <entry key="..\:/Users/aribesil/AndroidStudioProjects/moedadigital/app/src/main/res/drawable/searchview_background.xml" value="0.14" />
-        <entry key="..\:/Users/aribesil/AndroidStudioProjects/moedadigital/app/src/main/res/layout/activity_main.xml" value="0.1573321932449765" />
-        <entry key="..\:/Users/aribesil/AndroidStudioProjects/moedadigital/app/src/main/res/layout/fragment_details_coin.xml" value="0.18" />
+        <entry key="..\:/Users/aribesil/AndroidStudioProjects/moedadigital/app/src/main/res/layout/activity_main.xml" value="0.16480263157894737" />
+        <entry key="..\:/Users/aribesil/AndroidStudioProjects/moedadigital/app/src/main/res/layout/fragment_details_coin.xml" value="0.21376656690893545" />
         <entry key="..\:/Users/aribesil/AndroidStudioProjects/moedadigital/app/src/main/res/layout/fragment_favorite_coin.xml" value="0.2" />
         <entry key="..\:/Users/aribesil/AndroidStudioProjects/moedadigital/app/src/main/res/layout/fragment_list_coin.xml" value="0.1573321932449765" />
         <entry key="..\:/Users/aribesil/AndroidStudioProjects/moedadigital/app/src/main/res/layout/item_coin.xml" value="0.25" />
+        <entry key="..\:/Users/aribesil/AndroidStudioProjects/moedadigital/app/src/main/res/layout/part_appname_timezone.xml" value="0.21419410004275333" />
         <entry key="..\:/Users/aribesil/AndroidStudioProjects/moedadigital/app/src/main/res/menu/menu_nav.xml" value="0.1573321932449765" />
         <entry key="..\:/Users/aribesil/AndroidStudioProjects/moedasdigitais/app/src/main/res/drawable/ic_coin.xml" value="0.186" />
         <entry key="..\:/Users/aribesil/AndroidStudioProjects/moedasdigitais/app/src/main/res/layout/activity_main.xml" value="0.22" />
