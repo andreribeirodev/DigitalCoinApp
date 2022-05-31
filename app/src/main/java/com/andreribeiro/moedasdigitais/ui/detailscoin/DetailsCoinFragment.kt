@@ -27,20 +27,20 @@ class DetailsCoinFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        getDetailsAndPopulateViews()
+        getDetailsAndPopulateViews()
     }
 
-//    private fun getDetailsAndPopulateViews() {
-//        val details = args.coinDetails
-//        binding.textViewPriceCoin.text = details.priceUsd.toString()
-//        binding.textViewPriceHours.text = details.volumeHrsUsd.toString()
-//        binding.textViewPriceDay.text = details.volumeDayUsd.toString()
-//        binding.textViewPriceMonth.text = details.volumeMthUsd.toString()
-//        binding.textViewCoinAbreviation.text = details.Id
-//        Glide.with(this)
-//            .load(details.cryptoImage())
-//            .into(binding.imageViewCoin)
-//    }
+    private fun getDetailsAndPopulateViews() {
+        val details = args.coinDetails
+        binding.textViewPriceCoin.text = details.priceUsd.toString()
+        binding.textViewPriceHours.text = details.volumeHrsUsd.toString()
+        binding.textViewPriceDay.text = details.volumeDayUsd.toString()
+        binding.textViewPriceMonth.text = details.volumeMthUsd.toString()
+        binding.textViewCoinAbreviation.text = details.Id
+        Glide.with(this)
+            .load(details.cryptoImage())
+            .into(binding.imageViewCoin)
+    }
 
     override fun onDestroy() {
         super.onDestroy()
