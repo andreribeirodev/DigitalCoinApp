@@ -9,7 +9,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ListCoinFragmentViewModel(
+class ListCoinViewModel(
     private val coinRepository: ICoinRepository
 ) : ViewModel() {
 
@@ -27,7 +27,7 @@ class ListCoinFragmentViewModel(
             }
 
             override fun onFailure(call: Call<List<CoinModel>>, t: Throwable) {
-                TODO("Not yet implemented")
+                println("Error: $t")
             }
         })
     }
