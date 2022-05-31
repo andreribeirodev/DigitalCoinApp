@@ -13,9 +13,6 @@
         <action
             android:id="@+id/action_listCoinFragment_to_favoriteCoinFragment"
             app:destination="@id/favoriteCoinFragment" />
-        <argument
-            android:name="CoinModel"
-            app:argType="com.andreribeiro.moedasdigitais.model.CoinModel" />
         <action
             android:id="@+id/action_listCoinFragment_to_detailsCoinFragment"
             app:destination="@id/detailsCoinFragment" />
@@ -25,7 +22,11 @@
         android:id="@+id/favoriteCoinFragment"
         android:name="com.andreribeiro.moedasdigitais.ui.favoritecoin.FavoriteCoinFragment"
         android:label="fragment_favorite_coin"
-        tools:layout="@layout/fragment_favorite_coin" />
+        tools:layout="@layout/fragment_favorite_coin" >
+        <action
+            android:id="@+id/action_favoriteCoinFragment_to_listCoinFragment"
+            app:destination="@id/listCoinFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detailsCoinFragment"
         android:name="com.andreribeiro.moedasdigitais.ui.detailscoin.DetailsCoinFragment"
@@ -34,5 +35,8 @@
         <action
             android:id="@+id/action_detailsCoinFragment_to_listCoinFragment"
             app:destination="@id/listCoinFragment" />
+        <argument
+            android:name="coinDetails"
+            app:argType="com.andreribeiro.moedasdigitais.model.CoinModel" />
     </fragment>
 </navigation>
