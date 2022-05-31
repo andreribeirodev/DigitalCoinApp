@@ -5,9 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.andreribeiro.moedasdigitais.model.CoinModel
 import com.andreribeiro.moedasdigitais.repository.ICoinRepository
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class ListCoinViewModel(
     private val coinRepository: ICoinRepository
@@ -16,19 +17,29 @@ class ListCoinViewModel(
     private val _coins = MutableLiveData<List<CoinModel>>()
     val coinList: LiveData<List<CoinModel>> = _coins
 
+//    fun getCoinList() {
+//        coinRepository.getCoins().enqueue(object : Callback<List<CoinModel>> {
+//            override fun onResponse(
+//                call: Call<List<CoinModel>>,
+//                response: Response<List<CoinModel>>
+//            ) {
+//                val coinList = response.body()
+//                _coins.postValue(coinList?.filter { it.type == 1 })
+//            }
+//
+//            override fun onFailure(call: Call<List<CoinModel>>, t: Throwable) {
+//                println("Error: $t")
+//            }
+//        })
+//    }
+
     fun getCoinList() {
-        coinRepository.getCoins().enqueue(object : Callback<List<CoinModel>> {
-            override fun onResponse(
-                call: Call<List<CoinModel>>,
-                response: Response<List<CoinModel>>
-            ) {
-                val coinList = response.body()
-                _coins.postValue(coinList?.filter { it.type == 1 })
+        CoroutineScope(Dispatchers.Main).launch {
+            val coinList = withContext(Dispatchers.Default) {
+                coinRepository.getCoin()
             }
 
-            override fun onFailure(call: Call<List<CoinModel>>, t: Throwable) {
-                println("Error: $t")
-            }
-        })
+            _coins.value = coinList.filter { it.type == 1 }
+        }
     }
 }
