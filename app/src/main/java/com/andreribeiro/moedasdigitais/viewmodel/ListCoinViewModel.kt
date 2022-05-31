@@ -22,8 +22,8 @@ class ListCoinViewModel(
                 call: Call<List<CoinModel>>,
                 response: Response<List<CoinModel>>
             ) {
-                val coinList = response.body()!!
-                _coins.value = coinList
+                val coinList = response.body()
+                _coins.postValue(coinList?.filter { it.type == 1 })
             }
 
             override fun onFailure(call: Call<List<CoinModel>>, t: Throwable) {

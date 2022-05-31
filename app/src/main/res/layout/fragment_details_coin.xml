@@ -7,10 +7,11 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="350dp"
         android:background="#8c975b">
 
         <TextView
+            android:id="@+id/textViewBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -18,54 +19,58 @@
             android:drawableLeft="@drawable/ic_back"
             android:text="Voltar"
             android:textColor="@color/white"
-            android:textSize="18dp"
+            android:textSize="24dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txt_btc"
+            android:id="@+id/textViewCoinAbreviation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="BTC"
             android:textColor="@color/white"
-            android:textSize="18dp"
+            android:textSize="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/image_coin"
+            android:id="@+id/imageViewCoin"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginTop="40dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt_btc"
+            app:layout_constraintTop_toBottomOf="@id/textViewCoinAbreviation"
             app:srcCompat="@android:drawable/ic_dialog_info" />
 
         <ImageView
+            android:id="@+id/imageviewFavoriteStar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@id/image_coin"
+            app:layout_constraintBottom_toBottomOf="@id/imageViewCoin"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/image_coin"
-            app:layout_constraintTop_toTopOf="@id/txt_btc"
+            app:layout_constraintStart_toEndOf="@id/imageViewCoin"
+            app:layout_constraintTop_toTopOf="@id/imageViewCoin"
             app:srcCompat="@drawable/ic_star" />
 
         <TextView
-            android:id="@+id/txt_coin"
+            android:drawableStart="@drawable/ic_icon_usd"
+            android:textAlignment="center"
+            android:id="@+id/textViewPriceCoin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="$ 31,010.20"
+            android:text="31,010.20"
             android:textColor="@color/white"
-            android:textSize="24dp"
+            android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image_coin" />
+            app:layout_constraintTop_toBottomOf="@id/imageViewCoin" />
 
         <Button
+            android:id="@+id/btnAddFavorite"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:background="@drawable/custom_button"
@@ -73,11 +78,11 @@
             android:paddingBottom="10dp"
             android:text="Adicionar"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt_coin" />
+            app:layout_constraintTop_toBottomOf="@id/textViewPriceCoin" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -99,76 +104,79 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txt_hora"
+            android:id="@+id/textViewHours"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="60dp"
             android:text="última hora:"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="24sp"
             app:layout_constraintEnd_toStartOf="@id/txt_volumes_negociados"
             app:layout_constraintStart_toStartOf="@id/txt_volumes_negociados"
             app:layout_constraintTop_toBottomOf="@id/txt_volumes_negociados" />
 
         <TextView
-            android:id="@+id/txt_mes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="última mês:"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/txt_ano"
-            app:layout_constraintStart_toStartOf="@id/txt_hora"
-            app:layout_constraintTop_toBottomOf="@id/txt_hora" />
-
-        <TextView
-            android:id="@+id/txt_ano"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="último ano:"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@id/txt_mes"
-            app:layout_constraintTop_toBottomOf="@id/txt_mes" />
-
-        <TextView
-            android:id="@+id/txt_valor1"
+            android:id="@+id/textViewDay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="$ 31,010.20"
+            android:text="último dia:"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/textViewMonth"
+            app:layout_constraintStart_toStartOf="@id/textViewHours"
+            app:layout_constraintTop_toBottomOf="@id/textViewHours" />
+
+        <TextView
+            android:id="@+id/textViewMonth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="último mês:"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="@id/textViewDay"
+            app:layout_constraintTop_toBottomOf="@id/textViewDay" />
+
+        <TextView
+            android:id="@+id/textViewPriceHours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:text="31,010.20"
+            android:drawableStart="@drawable/ic_icon_usd"
+            android:textColor="@color/white"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="@id/txt_volumes_negociados"
             app:layout_constraintStart_toEndOf="@id/txt_volumes_negociados"
             app:layout_constraintTop_toBottomOf="@id/txt_volumes_negociados" />
 
         <TextView
-            android:id="@+id/txt_valor2"
+            android:id="@+id/textViewPriceDay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="$ 31,010.20"
+            android:layout_marginTop="30dp"
+            android:text="31,010.20"
             android:textColor="@color/white"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@id/txt_valor3"
-            app:layout_constraintEnd_toEndOf="@id/txt_valor1"
-            app:layout_constraintStart_toStartOf="@id/txt_valor1"
-            app:layout_constraintTop_toBottomOf="@id/txt_valor1" />
+            android:textSize="24sp"
+            android:drawableStart="@drawable/ic_icon_usd"
+            app:layout_constraintBottom_toTopOf="@id/textViewPriceMonth"
+            app:layout_constraintEnd_toEndOf="@id/textViewPriceHours"
+            app:layout_constraintStart_toStartOf="@id/textViewPriceHours"
+            app:layout_constraintTop_toBottomOf="@id/textViewPriceHours" />
 
         <TextView
-            android:id="@+id/txt_valor3"
+            android:id="@+id/textViewPriceMonth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="$ 31,010.20"
+            android:layout_marginTop="30dp"
+            android:text="31,010.20"
+            android:drawableStart="@drawable/ic_icon_usd"
             android:textColor="@color/white"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@id/txt_valor2"
-            app:layout_constraintStart_toStartOf="@id/txt_valor2"
-            app:layout_constraintTop_toBottomOf="@id/txt_valor2" />
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="@id/textViewPriceDay"
+            app:layout_constraintStart_toStartOf="@id/textViewPriceDay"
+            app:layout_constraintTop_toBottomOf="@id/textViewPriceDay" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
