@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "122166851445",
+    "project_id": "moedas-4a4ee",
+    "storage_bucket": "moedas-4a4ee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122166851445:android:bfdd3ffcb20d5cfb94853c",
+        "android_client_info": {
+          "package_name": "com.andreribeiro.moedasdigitais"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "122166851445-be7a7afs5qnfjfiqc7kqs27teric4gjf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.andreribeiro.moedasdigitais",
+            "certificate_hash": "3a909f9d289e5fff0f9e25f0136a384cedec4864"
+          }
+        },
+        {
+          "client_id": "122166851445-nse0ptu1h2k047ulssbl7vm55mefj268.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9HVQcC10o_jyatHnGBLkbzWEdQ77ov7c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "122166851445-nse0ptu1h2k047ulssbl7vm55mefj268.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
