@@ -1,80 +1,53 @@
 package com.andreribeiro.moedasdigitais
 
 import android.annotation.SuppressLint
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.andreribeiro.moedasdigitais.databinding.ActivityListItemBinding
 import com.bumptech.glide.Glide
-import java.text.ParseException
-import java.text.SimpleDateFormat
-import java.util.*
 
 class MoneyItemAdapter :
-    ListAdapter<Result, MoneyItemAdapter.FilmItemViewHolder>(DIFF_CALLBACK) {
+    ListAdapter<Result, MoneyItemAdapter.MoneyItemViewHolder>(DIFF_CALLBACK) {
 
     private var onClickListener: ((filmId: Int) -> Unit)? = null
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmItemViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoneyItemViewHolder {
         val binding =
-            FilmListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return FilmItemViewHolder(binding, onClickListener)
+            ActivityListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return MoneyItemViewHolder(binding, onClickListener)
 
     }
 
-    override fun onBindViewHolder(holder: FilmItemViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MoneyItemViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
 
-    class FilmItemViewHolder(
-        private val binding: FilmListItemBinding,
+    class MoneyItemViewHolder(
+        private val binding: ActivityListItemBinding,
         private val onClickListener: ((filmId: Int) -> Unit)?
     ) : RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
         fun bind(film: Result) {
 
-            binding.tvMovieTitle.text = film.title
+            binding.moneyTitle.text = film.title
 
             Glide
                 .with(binding.root.context)
                 .load("https://image.tmdb.org/t/p/original" + film.poster_path)
                 .placeholder(R.drawable.ic_launcher_background)
                 .centerCrop()
-                .into(binding.ivMovie)
+                .into(binding.moneySymbol)
 
-            binding.tvReleaseDate.text = "Lançamento: ${film.release_date.getDateTimeFormatted()}"
+            binding.moneyAcronym.text = "Lançamento: ${film.release_date}"
 
-            binding.tvVoteAverage.text = "Classificação: ${film.vote_average}"
+            binding.moneyValor.text = "Classificação: ${film.vote_average}"
 
             binding.root.setOnClickListener {
                 onClickListener?.invoke(film.id)
             }
-        }
-
-        private fun String.getDateTimeFormatted(): String {
-            try {
-                val dateFormat = SimpleDateFormat("yyyy-MM-dd", getLocale())
-                val date = dateFormat.parse(this)
-                date?.let {
-                    return getDateToStringFormatted(date, "dd/MM/yyyy")
-                }
-            } catch (e: ParseException) {
-                e.localizedMessage?.let {
-                    Log.d("TAG", "getDateTimeFormatted: $e")
-                }
-            }
-            return orEmpty()
-        }
-
-        private fun getDateToStringFormatted(date: Date, dateString: String): String {
-            val simpleDateFormat = SimpleDateFormat(dateString, getLocale())
-            return simpleDateFormat.format(date)
-        }
-
-        private fun getLocale(): Locale {
-            return Locale("pt", "BR")
         }
     }
 
