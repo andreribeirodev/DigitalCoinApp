@@ -34,7 +34,7 @@ data class CoinModel(
     fun cryptoImage(): String {
         if (iconId != null) {
             iconId = iconId?.replace("-".toRegex(), "")
-            return "$IMAGE_URL/$iconId$IMAGE_EXTENSION"
+            return "https://s3.eu-central-1.amazonaws.com//bbxt-static-icons/type-id/png_512/$iconId.png"
         } else {
             return "https://media.atkinsonsbullion.com/AtkinsonsBullion/media/product/auco2614/auco2614_1.png"
         }
