@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -13,7 +14,7 @@ import com.andreribeiro.moedasdigitais.databinding.FragmentListCoinBinding
 import com.andreribeiro.moedasdigitais.model.CoinModel
 import com.andreribeiro.moedasdigitais.repository.CoinRepository
 import com.andreribeiro.moedasdigitais.ui.adapter.AdapterListCoin
-import com.andreribeiro.moedasdigitais.viewmodel.ListCoinViewModel
+import com.andreribeiro.moedasdigitais.viewmodel.ListCoinFragmentViewModel
 
 class ListCoinFragment : Fragment() {
 
@@ -25,7 +26,7 @@ class ListCoinFragment : Fragment() {
     private val coinService by lazy { CoinApiClient.coinService }
     private val coinRepository by lazy { CoinRepository(coinService) }
     private val listCoinFragmentFactory = ListCoinFactory(coinRepository)
-    private val listCoinFragmentViewModel by viewModels<ListCoinViewModel> { listCoinFragmentFactory }
+    private val listCoinFragmentViewModel by viewModels<ListCoinFragmentViewModel> { listCoinFragmentFactory }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,6 +41,20 @@ class ListCoinFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         adapterConfig()
         getCoins()
+        searchViewSetup()
+    }
+
+    private fun searchViewSetup() {
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                adapterItemCoin.filter.filter(newText)
+                return true
+            }
+        })
     }
 
     private fun adapterConfig() {
@@ -51,7 +66,7 @@ class ListCoinFragment : Fragment() {
         listCoinFragmentViewModel.getCoinList()
         listCoinFragmentViewModel.coinList.observe(viewLifecycleOwner) { coinList ->
             coinList.let {
-                adapterItemCoin.submitList(coinList)
+                adapterItemCoin.setData(coinList.toMutableList())
             }
         }
         onClickSetup()

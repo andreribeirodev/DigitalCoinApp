@@ -37,7 +37,8 @@ class DetailsCoinFragment : Fragment() {
         binding.textViewPriceDay.text = details.volumeDayUsd.toString()
         binding.textViewPriceMonth.text = details.volumeMthUsd.toString()
         binding.textViewCoinAbreviation.text = details.Id
-        Glide.with(this)
+
+        Glide.with(binding.root.context)
             .load(details.cryptoImage())
             .into(binding.imageViewCoin)
     }

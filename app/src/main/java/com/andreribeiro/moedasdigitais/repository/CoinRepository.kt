@@ -10,8 +10,8 @@ class CoinRepository(
 ) : ICoinRepository {
 
     override suspend fun getCoin(): List<CoinModel> {
-        return withContext(Dispatchers.Default) {
-            coinService.getCoins()
+        return withContext(Dispatchers.IO) {
+            coinService.getCoins().filter { it.type == 1 }
         }
     }
 }
