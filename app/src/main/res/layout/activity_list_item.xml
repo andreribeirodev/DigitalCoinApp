@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#8c975b"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/money_symbol"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintStart_toEndOf="@id/money_title"/>
+
+        <TextView
+            android:id="@+id/money_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Nome doa criptomoeda"
+            app:layout_constraintTop_toTopOf="parent"
+         android:layout_margin="8dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textSize="20sp"
+            android:textColor="@color/cardview_light_background"
+            android:textAlignment="center"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/money_acronym"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Sigla"
+            app:layout_constraintTop_toBottomOf="@id/money_title"
+          android:layout_margin="8dp"
+            android:textSize="16sp"
+            android:textColor="@color/cardview_light_background"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/money_valor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Valor da criptomoeda"
+            app:layout_constraintTop_toBottomOf="@id/money_acronym"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginEnd="8dp"
+            android:textSize="20sp"
+            android:textColor="@color/cardview_light_background" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

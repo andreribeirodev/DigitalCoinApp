@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.andreribeiro.moedasdigitais.model.CoinModel
 import com.andreribeiro.moedasdigitais.repository.ICoinRepository
+import com.andreribeiro.moedasdigitais.util.Constants.IS_CRYPTO
 import kotlinx.coroutines.launch
 
 class ListCoinFragmentViewModel(
@@ -17,7 +18,7 @@ class ListCoinFragmentViewModel(
 
     fun getCoinList() {
         viewModelScope.launch {
-            val coinList = coinRepository.getCoin()
+            val coinList = coinRepository.getCoin(IS_CRYPTO)
             _coins.value = coinList
         }
     }
