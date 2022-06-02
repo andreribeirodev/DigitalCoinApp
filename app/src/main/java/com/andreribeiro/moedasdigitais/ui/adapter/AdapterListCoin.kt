@@ -62,7 +62,7 @@ class AdapterListCoin :
             }
 
             override fun areContentsTheSame(oldItem: CoinModel, newItem: CoinModel): Boolean {
-                return oldItem == newItem
+                return oldItem.Id == newItem.Id
             }
         }
     }

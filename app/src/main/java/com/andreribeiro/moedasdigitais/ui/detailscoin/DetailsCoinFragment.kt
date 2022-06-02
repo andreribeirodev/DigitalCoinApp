@@ -38,13 +38,13 @@ class DetailsCoinFragment : Fragment() {
         binding.textViewPriceMonth.text = details.volumeMthUsd.toString()
         binding.textViewCoinAbreviation.text = details.Id
 
-        Glide.with(binding.root.context)
+        Glide.with(this)
             .load(details.cryptoImage())
             .into(binding.imageViewCoin)
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         _binding = null
     }
 }

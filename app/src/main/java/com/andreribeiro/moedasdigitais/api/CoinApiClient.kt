@@ -10,7 +10,7 @@ import retrofit2.http.GET
 interface CoinApiClient {
 
     @GET(ENDPOINT_ASSETS)
-    suspend fun getCoins(): List<CoinModel>
+    suspend fun getCoinsByType(): List<CoinModel>
 
     companion object {
         private val retrofit by lazy {
