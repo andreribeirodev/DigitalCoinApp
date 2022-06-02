@@ -18,8 +18,8 @@ class ListCoinFragmentViewModel(
 
     fun getCoinList() {
         viewModelScope.launch {
-            val coinList = coinRepository.getCoin(IS_CRYPTO)
-            _coins.value = coinList
+            val coinList = coinRepository.getCoinsByType(IS_CRYPTO)
+            _coins.postValue(coinList)
         }
     }
 }

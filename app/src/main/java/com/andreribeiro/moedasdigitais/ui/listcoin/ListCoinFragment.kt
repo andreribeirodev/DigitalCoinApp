@@ -42,6 +42,7 @@ class ListCoinFragment : Fragment() {
         adapterConfig()
         getCoins()
         searchViewSetup()
+        onClickSetup()
     }
 
     private fun searchViewSetup() {
@@ -69,7 +70,6 @@ class ListCoinFragment : Fragment() {
                 adapterItemCoin.setData(coinList.toMutableList())
             }
         }
-        onClickSetup()
     }
 
     private fun onClickSetup() {
@@ -79,13 +79,12 @@ class ListCoinFragment : Fragment() {
     }
 
     private fun goToFragmentDetails(coinDetails: CoinModel) {
-        val action =
-            ListCoinFragmentDirections.actionListCoinFragmentToDetailsCoinFragment(coinDetails)
+        val action = ListCoinFragmentDirections.actionListCoinFragmentToDetailsCoinFragment(coinDetails)
         findNavController().navigate(action)
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         _binding = null
     }
 }
