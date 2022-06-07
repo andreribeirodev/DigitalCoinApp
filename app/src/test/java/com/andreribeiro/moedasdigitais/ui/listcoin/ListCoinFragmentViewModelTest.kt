@@ -4,7 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.andreribeiro.moedasdigitais.model.CoinModel
 import com.andreribeiro.moedasdigitais.repository.ICoinRepository
-import com.andreribeiro.moedasdigitais.viewmodel.ListCoinFragmentViewModel
+import com.andreribeiro.moedasdigitais.viewmodel.CoinListFragmentViewModel
 import com.nhaarman.mockitokotlin2.verify
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.test.TestCoroutineDispatcher
@@ -20,17 +20,17 @@ import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
-class ListCoinFragmentViewModelTest {
+class CoinListFragmentViewModelTest {
 
     @get:Rule
     val rule = InstantTaskExecutorRule()
 
-    private lateinit var viewModel: ListCoinFragmentViewModel
+    private lateinit var viewModel: CoinListFragmentViewModel
 
     private val dispatcher = TestCoroutineDispatcher()
 
     @Mock
-    private lateinit var listCoinLiveDataObserver: Observer<List<CoinModel>>
+    private lateinit var CoinListLiveDataObserver: Observer<List<CoinModel>>
 
     @Before
     fun setup() {
@@ -62,14 +62,14 @@ class ListCoinFragmentViewModelTest {
 
         val coinRepository = MockRepository(listCoinModel)
         viewModel =
-            ListCoinFactory(coinRepository).create(ListCoinFragmentViewModel::class.java)
-        viewModel.coinList.observeForever(listCoinLiveDataObserver)
+            CoinListFactory(coinRepository).create(CoinListFragmentViewModel::class.java)
+        viewModel.coinList.observeForever(CoinListLiveDataObserver)
 
         // Act
         viewModel.getCoinList()
 
         // Assert
-        verify(listCoinLiveDataObserver).onChanged(listCoinModel)
+        verify(CoinListLiveDataObserver).onChanged(listCoinModel)
     }
 }
 
@@ -77,7 +77,7 @@ class MockRepository(
     private val listCoin: List<CoinModel>
 ) : ICoinRepository {
 
-    override suspend fun getCoin(type: Int): List<CoinModel> {
+    override suspend fun getCoinsByType(type: Int): List<CoinModel> {
         return withContext(Dispatchers.IO) {
             listCoin
         }

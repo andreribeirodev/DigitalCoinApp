@@ -1,5 +1,0 @@
-package com.andreribeiro.moedasdigitais.viewmodel
-
-import com.andreribeiro.moedasdigitais.repository.ICoinRepository
-
-class CoinDetailsFragmentViewModel

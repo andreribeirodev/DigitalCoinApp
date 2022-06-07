@@ -5,28 +5,30 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.andreribeiro.moedasdigitais.R
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import com.andreribeiro.moedasdigitais.databinding.FragmentListCoinBinding
+import com.andreribeiro.moedasdigitais.db.AppDatabase
+import com.andreribeiro.moedasdigitais.db.dao.CoinDao
+import com.andreribeiro.moedasdigitais.db.datasource.CoinFavoriteRepositoryImpl
+import com.andreribeiro.moedasdigitais.db.datasource.ICoinFavoriteRepository
+import com.andreribeiro.moedasdigitais.viewmodel.CoinFavoriteFragmentViewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [FavoriteCoinFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class FavoriteCoinFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private var _binding: FragmentListCoinBinding? = null
+    private val binding: FragmentListCoinBinding get() = _binding!!
+
+    private val viewModel: CoinFavoriteFragmentViewModel by viewModels {
+        object : ViewModelProvider.Factory {
+            override fun <T : ViewModel> create(modelClass: Class<T>): T {
+                val coinDao: CoinDao = AppDatabase.getInstance(requireContext()).CoinDao()
+
+                val coinFavoriteRepository: ICoinFavoriteRepository =
+                    CoinFavoriteRepositoryImpl(coinDao)
+                return CoinFavoriteFragmentViewModel(coinFavoriteRepository) as T
+            }
         }
     }
 
@@ -34,28 +36,18 @@ class FavoriteCoinFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_favorite_coin, container, false)
+    ): View {
+        _binding = FragmentListCoinBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment FavoriteCoinFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            FavoriteCoinFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
 }

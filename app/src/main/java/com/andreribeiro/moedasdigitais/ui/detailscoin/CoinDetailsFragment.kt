@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.andreribeiro.moedasdigitais.databinding.FragmentDetailsCoinBinding
+import com.andreribeiro.moedasdigitais.db.entity.CoinEntity
 import com.bumptech.glide.Glide
 
 class CoinDetailsFragment : Fragment() {
@@ -41,6 +42,12 @@ class CoinDetailsFragment : Fragment() {
         Glide.with(this)
             .load(details.cryptoImage())
             .into(binding.imageViewCoin)
+    }
+
+    private fun addCoinFavorite() {
+        binding.btnAddFavorite.setOnClickListener { btnAddFavorite ->
+
+        }
     }
 
     override fun onDestroyView() {
