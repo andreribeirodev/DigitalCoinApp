@@ -9,7 +9,7 @@ import com.andreribeiro.moedasdigitais.repository.ICoinRepository
 import com.andreribeiro.moedasdigitais.util.Constants.IS_CRYPTO
 import kotlinx.coroutines.launch
 
-class ListCoinFragmentViewModel(
+class CoinListFragmentViewModel(
     private val coinRepository: ICoinRepository
 ) : ViewModel() {
 

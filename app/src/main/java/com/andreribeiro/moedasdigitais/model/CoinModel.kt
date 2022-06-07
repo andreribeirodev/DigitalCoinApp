@@ -1,8 +1,6 @@
 package com.andreribeiro.moedasdigitais.model
 
 import android.os.Parcelable
-import com.andreribeiro.moedasdigitais.util.Constants.IMAGE_EXTENSION
-import com.andreribeiro.moedasdigitais.util.Constants.IMAGE_URL
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
