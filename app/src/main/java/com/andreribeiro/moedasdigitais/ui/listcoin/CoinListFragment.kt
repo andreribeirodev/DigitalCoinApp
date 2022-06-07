@@ -13,20 +13,20 @@ import com.andreribeiro.moedasdigitais.api.CoinApiClient
 import com.andreribeiro.moedasdigitais.databinding.FragmentListCoinBinding
 import com.andreribeiro.moedasdigitais.model.CoinModel
 import com.andreribeiro.moedasdigitais.repository.CoinRepository
-import com.andreribeiro.moedasdigitais.ui.adapter.AdapterListCoin
-import com.andreribeiro.moedasdigitais.viewmodel.ListCoinFragmentViewModel
+import com.andreribeiro.moedasdigitais.ui.adapter.CoinListAdapter
+import com.andreribeiro.moedasdigitais.viewmodel.CoinListFragmentViewModel
 
-class ListCoinFragment : Fragment() {
+class CoinListFragment : Fragment() {
 
     private var _binding: FragmentListCoinBinding? = null
     private val binding: FragmentListCoinBinding get() = _binding!!
 
-    private val adapterItemCoin = AdapterListCoin()
+    private val adapterItemCoin = CoinListAdapter()
 
     private val coinService by lazy { CoinApiClient.coinService }
     private val coinRepository by lazy { CoinRepository(coinService) }
-    private val listCoinFragmentFactory = ListCoinFactory(coinRepository)
-    private val listCoinFragmentViewModel by viewModels<ListCoinFragmentViewModel> { listCoinFragmentFactory }
+    private val listCoinFragmentFactory = CoinListFactory(coinRepository)
+    private val listCoinFragmentViewModel by viewModels<CoinListFragmentViewModel> { listCoinFragmentFactory }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -79,7 +79,7 @@ class ListCoinFragment : Fragment() {
     }
 
     private fun goToFragmentDetails(coinDetails: CoinModel) {
-        val action = ListCoinFragmentDirections.actionListCoinFragmentToDetailsCoinFragment(coinDetails)
+        val action = CoinListFragmentDirections.actionListCoinFragmentToDetailsCoinFragment(coinDetails)
         findNavController().navigate(action)
     }
 

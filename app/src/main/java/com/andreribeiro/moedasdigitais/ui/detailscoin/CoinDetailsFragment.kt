@@ -9,12 +9,12 @@ import androidx.navigation.fragment.navArgs
 import com.andreribeiro.moedasdigitais.databinding.FragmentDetailsCoinBinding
 import com.bumptech.glide.Glide
 
-class DetailsCoinFragment : Fragment() {
+class CoinDetailsFragment : Fragment() {
 
     private var _binding: FragmentDetailsCoinBinding? = null
     private val binding: FragmentDetailsCoinBinding get() = _binding!!
 
-    private val args by navArgs<DetailsCoinFragmentArgs>()
+    private val args by navArgs<CoinDetailsFragmentArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
