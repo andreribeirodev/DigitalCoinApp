@@ -12,7 +12,7 @@ import androidx.navigation.fragment.navArgs
 import com.andreribeiro.moedasdigitais.R
 import com.andreribeiro.moedasdigitais.databinding.FragmentDetailsCoinBinding
 import com.andreribeiro.moedasdigitais.db.entity.CoinEntity
-import com.andreribeiro.moedasdigitais.viewmodel.CoinFavoriteViewModel
+import com.andreribeiro.moedasdigitais.viewmodel.CoinFavoriteDatabaseViewModel
 import com.bumptech.glide.Glide
 
 class CoinDetailsFragment : Fragment() {
@@ -22,7 +22,7 @@ class CoinDetailsFragment : Fragment() {
 
     private val args by navArgs<CoinDetailsFragmentArgs>()
 
-    private lateinit var mCoinFavoriteViewModel: CoinFavoriteViewModel
+    private lateinit var mCoinDetailsViewModel: CoinFavoriteDatabaseViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,7 +31,7 @@ class CoinDetailsFragment : Fragment() {
     ): View {
         _binding = FragmentDetailsCoinBinding.inflate(inflater, container, false)
 
-        mCoinFavoriteViewModel = ViewModelProvider(this).get(CoinFavoriteViewModel::class.java)
+        mCoinDetailsViewModel = ViewModelProvider(this).get(CoinFavoriteDatabaseViewModel::class.java)
 
         binding.btnAddFavorite.setOnClickListener {
             insertDataToDataBase()
@@ -42,7 +42,7 @@ class CoinDetailsFragment : Fragment() {
 
     private fun insertDataToDataBase() {
         val coinFavorite = setupCoinFavoriteData()
-        mCoinFavoriteViewModel.addCoinFavorite(coinFavorite)
+        mCoinDetailsViewModel.addCoinFavorite(coinFavorite)
         Toast.makeText(requireContext(), "Sucess", Toast.LENGTH_SHORT).show()
         findNavController().navigate(R.id.action_detailsCoinFragment_to_listCoinFragment)
     }

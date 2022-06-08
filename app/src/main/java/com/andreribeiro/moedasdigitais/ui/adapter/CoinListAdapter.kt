@@ -12,9 +12,7 @@ import com.andreribeiro.moedasdigitais.model.CoinModel
 import com.bumptech.glide.Glide
 import java.util.*
 
-class CoinListAdapter :
-    ListAdapter<CoinModel, CoinListAdapter.CoinItemViewHolder>(DIFF_CALLBACK),
-    Filterable {
+class CoinListAdapter : ListAdapter<CoinModel, CoinListAdapter.CoinItemViewHolder>(DIFF_CALLBACK), Filterable {
 
     var onClickListener: ((coinDetails: CoinModel) -> Unit)? = null
     private var list = mutableListOf<CoinModel>()

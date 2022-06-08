@@ -10,7 +10,7 @@ import com.andreribeiro.moedasdigitais.db.entity.CoinEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class CoinFavoriteViewModel(application: Application) : AndroidViewModel(application) {
+class CoinFavoriteDatabaseViewModel(application: Application) : AndroidViewModel(application) {
 
     val readAllData: LiveData<List<CoinEntity>>
     private val repository: CoinFavoriteRepositoryImpl
