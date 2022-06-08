@@ -79,7 +79,8 @@ class CoinListFragment : Fragment() {
     }
 
     private fun goToFragmentDetails(coinDetails: CoinModel) {
-        val action = CoinListFragmentDirections.actionListCoinFragmentToDetailsCoinFragment(coinDetails)
+        val action =
+            CoinListFragmentDirections.actionListCoinFragmentToDetailsCoinFragment(coinDetails)
         findNavController().navigate(action)
     }
 

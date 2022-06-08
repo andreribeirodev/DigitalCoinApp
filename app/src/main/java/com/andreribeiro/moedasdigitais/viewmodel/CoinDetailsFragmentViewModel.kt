@@ -1,5 +1,8 @@
 package com.andreribeiro.moedasdigitais.viewmodel
 
-import com.andreribeiro.moedasdigitais.repository.ICoinRepository
+import androidx.lifecycle.ViewModel
+import com.andreribeiro.moedasdigitais.db.datasource.ICoinFavoriteRepository
 
-class CoinDetailsFragmentViewModel
+class CoinDetailsFragmentViewModel(
+    private val coinFavoriteRepository: ICoinFavoriteRepository
+) : ViewModel()
