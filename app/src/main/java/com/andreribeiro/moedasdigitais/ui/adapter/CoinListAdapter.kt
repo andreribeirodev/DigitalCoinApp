@@ -41,7 +41,7 @@ class CoinListAdapter :
         fun bind(coin: CoinModel) {
             binding.textViewCoinName.text = coin.name
             binding.textViewCoinPrice.text = coin.priceUsd.toString()
-            binding.textViewCoinSigla.text = coin.Id
+            binding.textViewCoinSigla.text = coin.assetId
 
             Glide.with(binding.root.context)
                 .load(coin.cryptoImage())
@@ -62,7 +62,7 @@ class CoinListAdapter :
             }
 
             override fun areContentsTheSame(oldItem: CoinModel, newItem: CoinModel): Boolean {
-                return oldItem.Id == newItem.Id
+                return oldItem.assetId == newItem.assetId
             }
         }
     }

@@ -20,8 +20,8 @@
 
     <fragment
         android:id="@+id/favoriteCoinFragment"
-        android:name="com.andreribeiro.moedasdigitais.ui.favoritecoin.FavoriteCoinFragment"
-        android:label="fragment_favorite_coin"
+        android:name="com.andreribeiro.moedasdigitais.ui.favoritecoin.CoinFavoriteFragment"
+        android:label="Moedas Favoritas"
         tools:layout="@layout/fragment_favorite_coin" >
         <action
             android:id="@+id/action_favoriteCoinFragment_to_listCoinFragment"

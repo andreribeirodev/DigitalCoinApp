@@ -10,7 +10,7 @@ import com.andreribeiro.moedasdigitais.db.entity.CoinEntity
 @Database(entities = [CoinEntity::class], version = 1)
 abstract class AppDatabase() : RoomDatabase() {
 
-    abstract fun CoinDao(): CoinDao
+    abstract fun coinDao(): CoinDao
 
     companion object {
         private const val DATABASE_NAME = "CoinsFavorites"

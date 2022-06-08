@@ -1,9 +1,12 @@
 package com.andreribeiro.moedasdigitais.db.entity
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 @Entity(tableName = "coins")
 data class CoinEntity(
     @PrimaryKey(autoGenerate = true)
@@ -22,4 +25,4 @@ data class CoinEntity(
     val priceUsd: Float,
     @ColumnInfo(name = "icon_id")
     var iconId: String,
-)
+) : Parcelable

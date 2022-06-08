@@ -1,31 +1,32 @@
 package com.andreribeiro.moedasdigitais.db.datasource
 
 import androidx.lifecycle.LiveData
-import com.andreribeiro.moedasdigitais.db.AppDatabase
 import com.andreribeiro.moedasdigitais.db.dao.CoinDao
 import com.andreribeiro.moedasdigitais.db.entity.CoinEntity
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 
 class CoinFavoriteRepositoryImpl(
-    private val appDatabase: CoinDao
+    private val coinDao: CoinDao
 ) : ICoinFavoriteRepository {
 
-    override suspend fun getAllCoinFavorite(): LiveData<List<CoinEntity>> {
-        return withContext(Dispatchers.IO) {
-            appDatabase.CoinDao().getAllCoins()
-        }
-    }
+    val readAllData: LiveData<List<CoinEntity>> = readAllCoinsFavorite()
 
     override suspend fun addCoinFavorite(coinFavorite: CoinEntity) {
-        withContext(Dispatchers.IO) {
-            appDatabase.CoinDao().coinSave(coinFavorite)
-        }
+        coinDao.addCoinFavorite(coinFavorite)
     }
 
-    override suspend fun deleteCoinFavorite(coinId: Int) {
-        withContext(Dispatchers.IO) {
-            appDatabase.CoinDao().delete(coinId)
-        }
+    override suspend fun updateCoinFavorite(coinFavorite: CoinEntity) {
+        coinDao.updateCoinFavorite(coinFavorite)
+    }
+
+    override suspend fun deleteCoinFavorite(coinFavorite: CoinEntity) {
+        coinDao.deleteCoinFavorite(coinFavorite)
+    }
+
+    override suspend fun deleteAllCoinsFavorite() {
+        coinDao.deleteAllCoinsFavorite()
+    }
+
+    override fun readAllCoinsFavorite(): LiveData<List<CoinEntity>> {
+        return coinDao.readAllCoinsFavorite()
     }
 }
