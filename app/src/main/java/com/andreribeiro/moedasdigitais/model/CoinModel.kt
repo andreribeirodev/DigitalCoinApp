@@ -1,15 +1,13 @@
 package com.andreribeiro.moedasdigitais.model
 
 import android.os.Parcelable
-import com.andreribeiro.moedasdigitais.util.Constants.IMAGE_EXTENSION
-import com.andreribeiro.moedasdigitais.util.Constants.IMAGE_URL
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class CoinModel(
     @SerializedName("asset_id")
-    val Id: String,
+    val assetId: String,
     @SerializedName("name")
     val name: String,
     @SerializedName("type_is_crypto")

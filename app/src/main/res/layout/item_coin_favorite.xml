@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:backgroundTint="@color/black"
+    android:elevation="8dp"
+    app:cardCornerRadius="12dp"
+    tools:showIn="@layout/fragment_favorite_coin">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#8c975b"
+        android:padding="8dp"
+        android:elevation="12dp">
+
+        <TextView
+            android:id="@+id/tvCoinFavoriteName"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Bitcoin" />
+
+        <TextView
+            android:id="@+id/tvCoinFavoriteNameAsset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@id/tvCoinFavoriteName"
+            app:layout_constraintStart_toStartOf="@id/tvCoinFavoriteName"
+            app:layout_constraintTop_toBottomOf="@id/tvCoinFavoriteName"
+            tools:text="BTC" />
+
+        <TextView
+            android:id="@+id/tvCoinFavoritePrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:drawableStartCompat="@drawable/ic_icon_usd"
+            app:layout_constraintEnd_toEndOf="@id/tvCoinFavoriteNameAsset"
+            app:layout_constraintStart_toStartOf="@id/tvCoinFavoriteNameAsset"
+            app:layout_constraintTop_toBottomOf="@id/tvCoinFavoriteNameAsset"
+            tools:text="32,000.00" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivCoinFavoriteImageAsset"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="8dp"
+            android:elevation="15dp"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>

@@ -1,3 +1,0 @@
-package com.andreribeiro.moedasdigitais.viewmodel
-
-class DetailsCoinFragmentViewModel
