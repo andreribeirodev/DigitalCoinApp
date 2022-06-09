@@ -27,14 +27,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        setupNavController()
 
         val layoutPartAppNameTime = bindingAppNameTime
 
         val date = Calendar.getInstance().time
         val dateTimeFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
         layoutPartAppNameTime.textViewDate.text = dateTimeFormat.toString()
-
-        setupNavController()
     }
 
     private fun setupNavController() {

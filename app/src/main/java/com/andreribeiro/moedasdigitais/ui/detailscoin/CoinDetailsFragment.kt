@@ -41,7 +41,7 @@ class CoinDetailsFragment : Fragment() {
     }
 
     private fun getDetailsApiPopulateViews() {
-        val details = args.coinDetails!!
+        val details = args.coinDetails
         binding.textViewPriceCoin.text = details.priceUsd.toString()
         binding.textViewPriceHours.text = details.volumeHrsUsd.toString()
         binding.textViewPriceDay.text = details.volumeDayUsd.toString()
@@ -62,7 +62,8 @@ class CoinDetailsFragment : Fragment() {
     private fun insertCoinFavoriteDataBase() {
         mCoinDetailsViewModel.addCoinFavorite(getCoinFavorite())
         Toast.makeText(requireContext(), "Coin Add Sucess", Toast.LENGTH_SHORT).show()
-        findNavController().navigate(R.id.action_detailsCoinFragment_to_favoriteCoinFragment)
+        findNavController().navigate(CoinDetailsFragmentDirections.actionDetailsCoinFragmentToFavoriteCoinFragment())
+        // findNavController().navigate(R.id.action_detailsCoinFragment_to_favoriteCoinFragment)
     }
 
     private fun deleteCoinFavorite() {
@@ -76,7 +77,7 @@ class CoinDetailsFragment : Fragment() {
     }
 
     private fun getCoinFavorite(): CoinEntity {
-        val coinDetails = args.coinDetails!!
+        val coinDetails = args.coinDetails
         return CoinEntity(
             assetId = coinDetails.assetId,
             name = coinDetails.name,

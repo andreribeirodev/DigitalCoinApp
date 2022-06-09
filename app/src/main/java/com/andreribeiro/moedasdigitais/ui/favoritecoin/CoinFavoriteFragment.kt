@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.andreribeiro.moedasdigitais.databinding.FragmentFavoriteCoinBinding
 import com.andreribeiro.moedasdigitais.ui.adapter.CoinFavoriteAdapter
@@ -52,14 +51,7 @@ class CoinFavoriteFragment : Fragment() {
 
     private fun setupOnClickCoinItemFav() {
         coinFavAdapter.onClickListener = {
-            goToDetailsFragment(it.id)
         }
-    }
-
-    private fun goToDetailsFragment(id: Int) {
-        val action =
-            CoinFavoriteFragmentDirections.actionFavoriteCoinFragmentToDetailsCoinFragment(null, id)
-        findNavController().navigate(action)
     }
 
     override fun onDestroyView() {

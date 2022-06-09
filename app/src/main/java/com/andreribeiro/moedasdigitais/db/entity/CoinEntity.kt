@@ -25,4 +25,13 @@ data class CoinEntity(
     val priceUsd: Float,
     @ColumnInfo(name = "icon_id")
     var iconId: String
-) : Parcelable
+) : Parcelable {
+    fun cryptoImageFavorite(): String {
+        if (iconId != null) {
+            iconId = iconId?.replace("-".toRegex(), "")
+            return "https://s3.eu-central-1.amazonaws.com//bbxt-static-icons/type-id/png_512/$iconId.png"
+        } else {
+            return "https://media.atkinsonsbullion.com/AtkinsonsBullion/media/product/auco2614/auco2614_1.png"
+        }
+    }
+}
