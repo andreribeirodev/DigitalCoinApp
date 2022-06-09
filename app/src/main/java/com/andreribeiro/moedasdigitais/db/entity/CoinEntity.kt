@@ -24,5 +24,5 @@ data class CoinEntity(
     @ColumnInfo(name = "price_usd")
     val priceUsd: Float,
     @ColumnInfo(name = "icon_id")
-    var iconId: String,
+    var iconId: String
 ) : Parcelable

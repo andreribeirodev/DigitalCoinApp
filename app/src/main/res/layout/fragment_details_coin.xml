@@ -53,7 +53,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/imageViewCoin"
             app:layout_constraintTop_toTopOf="@id/imageViewCoin"
-            app:srcCompat="@drawable/ic_star" />
+            app:srcCompat="@drawable/ic_star"
+            android:visibility="gone"/>
 
         <TextView
             android:drawableStart="@drawable/ic_icon_usd"

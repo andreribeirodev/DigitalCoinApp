@@ -7,14 +7,17 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.andreribeiro.moedasdigitais.databinding.ItemCoinFavoriteBinding
 import com.andreribeiro.moedasdigitais.db.entity.CoinEntity
+import com.andreribeiro.moedasdigitais.model.CoinModel
 
 class CoinFavoriteAdapter :
     ListAdapter<CoinEntity, CoinFavoriteAdapter.CoinFavoriteItemViewHolder>(DIFF_CALLBACK) {
 
+    var onClickListener: ((coinFavorite: CoinEntity) -> Unit)? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CoinFavoriteItemViewHolder {
         val binding =
             ItemCoinFavoriteBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return CoinFavoriteItemViewHolder(binding)
+        return CoinFavoriteItemViewHolder(binding,onClickListener)
     }
 
     override fun onBindViewHolder(holder: CoinFavoriteItemViewHolder, position: Int) {
@@ -22,7 +25,8 @@ class CoinFavoriteAdapter :
     }
 
     class CoinFavoriteItemViewHolder(
-        private val binding: ItemCoinFavoriteBinding
+        private val binding: ItemCoinFavoriteBinding,
+        private val onClickListener: ((coinFavorite: CoinEntity) -> Unit)?
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(coinFavorite: CoinEntity) {
@@ -30,6 +34,10 @@ class CoinFavoriteAdapter :
             binding.tvCoinFavoriteNameAsset.text = coinFavorite.assetId
             binding.tvCoinFavoritePrice.text = coinFavorite.priceUsd.toString()
             // AQUI SERÁ O GLIDE PARA CARREGAMENTO DA IMAGEM
+
+            binding.root.setOnClickListener {
+                onClickListener?.invoke(coinFavorite)
+            }
         }
     }
 

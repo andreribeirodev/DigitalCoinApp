@@ -20,7 +20,6 @@ class CoinListFragment : Fragment() {
 
     private var _binding: FragmentListCoinBinding? = null
     private val binding: FragmentListCoinBinding get() = _binding!!
-
     private val adapterItemCoin = CoinListAdapter()
 
     private val coinService by lazy { CoinApiClient.coinService }
@@ -79,8 +78,7 @@ class CoinListFragment : Fragment() {
     }
 
     private fun goToFragmentDetails(coinDetails: CoinModel) {
-        val action =
-            CoinListFragmentDirections.actionListCoinFragmentToDetailsCoinFragment(coinDetails)
+        val action = CoinListFragmentDirections.actionListCoinFragmentToDetailsCoinFragment(coinDetails)
         findNavController().navigate(action)
     }
 
