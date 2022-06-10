@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.andreribeiro.moedasdigitais.databinding.FragmentFavoriteCoinBinding
-import com.andreribeiro.moedasdigitais.db.entity.CoinEntity
 import com.andreribeiro.moedasdigitais.ui.adapter.CoinFavoriteAdapter
 import com.andreribeiro.moedasdigitais.viewmodel.CoinFavoriteDatabaseViewModel
 
@@ -16,9 +15,7 @@ class CoinFavoriteFragment : Fragment() {
 
     private var _binding: FragmentFavoriteCoinBinding? = null
     private val binding: FragmentFavoriteCoinBinding get() = _binding!!
-
     private val coinFavAdapter by lazy { CoinFavoriteAdapter() }
-
     private lateinit var mFavoriteViewModel: CoinFavoriteDatabaseViewModel
 
     override fun onCreateView(
@@ -27,19 +24,17 @@ class CoinFavoriteFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentFavoriteCoinBinding.inflate(inflater, container, false)
-
-        // viewModel
-        mFavoriteViewModel = ViewModelProvider(this).get(CoinFavoriteDatabaseViewModel::class.java)
-
-        // RecyclerView
-        setupRecyclerFavorite()
-
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // viewModel
+        mFavoriteViewModel = ViewModelProvider(this).get(CoinFavoriteDatabaseViewModel::class.java)
+        // RecyclerView
+        setupRecyclerFavorite()
         setupObservers()
+        setupOnClickCoinItemFav()
     }
 
     private fun setupRecyclerFavorite() {
@@ -50,12 +45,13 @@ class CoinFavoriteFragment : Fragment() {
 
     private fun setupObservers() {
         mFavoriteViewModel.readAllData.observe(viewLifecycleOwner) { coinFavList ->
-            setupPopulateAdapter(coinFavList)
+            coinFavAdapter.submitList(coinFavList)
         }
     }
 
-    private fun setupPopulateAdapter(coinFavorite: List<CoinEntity>) {
-        coinFavAdapter.submitList(coinFavorite)
+    private fun setupOnClickCoinItemFav() {
+        coinFavAdapter.onClickListener = {
+        }
     }
 
     override fun onDestroyView() {

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="130dp"
     android:layout_margin="8dp"
     android:backgroundTint="@color/black"
     android:elevation="8dp"
@@ -48,6 +49,7 @@
             android:textColor="@color/white"
             android:textSize="18sp"
             app:drawableStartCompat="@drawable/ic_icon_usd"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/tvCoinFavoriteNameAsset"
             app:layout_constraintStart_toStartOf="@id/tvCoinFavoriteNameAsset"
             app:layout_constraintTop_toBottomOf="@id/tvCoinFavoriteNameAsset"

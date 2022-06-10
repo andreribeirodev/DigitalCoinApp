@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/black"
     android:padding="26dp">
 
@@ -21,7 +22,7 @@
         android:id="@+id/textViewDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="22-10-1994"
+        android:text="09/06/2022"
         android:textColor="#8c975b"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@id/textViewAppName"

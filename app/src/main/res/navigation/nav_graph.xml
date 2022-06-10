@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_listCoinFragment_to_detailsCoinFragment"
             app:destination="@id/detailsCoinFragment" />
+        <argument
+            android:name="assetId"
+            app:argType="string" />
     </fragment>
 
     <fragment
@@ -23,6 +26,9 @@
         android:name="com.andreribeiro.moedasdigitais.ui.favoritecoin.CoinFavoriteFragment"
         android:label="Moedas Favoritas"
         tools:layout="@layout/fragment_favorite_coin" >
+        <action
+            android:id="@+id/action_favoriteCoinFragment_to_detailsCoinFragment"
+            app:destination="@id/detailsCoinFragment" />
         <action
             android:id="@+id/action_favoriteCoinFragment_to_listCoinFragment"
             app:destination="@id/listCoinFragment" />
@@ -32,11 +38,14 @@
         android:name="com.andreribeiro.moedasdigitais.ui.detailscoin.CoinDetailsFragment"
         android:label="DetailsCoinFragment"
         tools:layout="@layout/fragment_details_coin">
-        <action
-            android:id="@+id/action_detailsCoinFragment_to_listCoinFragment"
-            app:destination="@id/listCoinFragment" />
         <argument
             android:name="coinDetails"
             app:argType="com.andreribeiro.moedasdigitais.model.CoinModel" />
+        <action
+            android:id="@+id/action_detailsCoinFragment_to_favoriteCoinFragment"
+            app:destination="@id/favoriteCoinFragment" />
+        <action
+            android:id="@+id/action_detailsCoinFragment_to_listCoinFragment"
+            app:destination="@id/listCoinFragment" />
     </fragment>
 </navigation>

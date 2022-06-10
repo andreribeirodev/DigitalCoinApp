@@ -8,6 +8,7 @@ import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.andreribeiro.moedasdigitais.api.CoinApiClient
 import com.andreribeiro.moedasdigitais.databinding.FragmentListCoinBinding
@@ -20,7 +21,6 @@ class CoinListFragment : Fragment() {
 
     private var _binding: FragmentListCoinBinding? = null
     private val binding: FragmentListCoinBinding get() = _binding!!
-
     private val adapterItemCoin = CoinListAdapter()
 
     private val coinService by lazy { CoinApiClient.coinService }
@@ -66,9 +66,7 @@ class CoinListFragment : Fragment() {
     private fun getCoins() {
         listCoinFragmentViewModel.getCoinList()
         listCoinFragmentViewModel.coinList.observe(viewLifecycleOwner) { coinList ->
-            coinList.let {
-                adapterItemCoin.setData(coinList.toMutableList())
-            }
+            adapterItemCoin.setData(coinList.toMutableList())
         }
     }
 

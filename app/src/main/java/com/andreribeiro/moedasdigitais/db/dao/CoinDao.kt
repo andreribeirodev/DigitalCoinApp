@@ -7,7 +7,7 @@ import com.andreribeiro.moedasdigitais.db.entity.CoinEntity
 @Dao
 interface CoinDao {
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addCoinFavorite(coinFavorite: CoinEntity)
 
     @Update

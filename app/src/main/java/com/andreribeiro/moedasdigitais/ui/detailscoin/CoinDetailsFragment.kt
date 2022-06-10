@@ -19,9 +19,7 @@ class CoinDetailsFragment : Fragment() {
 
     private var _binding: FragmentDetailsCoinBinding? = null
     private val binding: FragmentDetailsCoinBinding get() = _binding!!
-
     private val args by navArgs<CoinDetailsFragmentArgs>()
-
     private lateinit var mCoinDetailsViewModel: CoinFavoriteDatabaseViewModel
 
     override fun onCreateView(
@@ -30,43 +28,19 @@ class CoinDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentDetailsCoinBinding.inflate(inflater, container, false)
-
-        mCoinDetailsViewModel = ViewModelProvider(this).get(CoinFavoriteDatabaseViewModel::class.java)
-
-        binding.btnAddFavorite.setOnClickListener {
-            insertDataToDataBase()
-        }
-
         return binding.root
-    }
-
-    private fun insertDataToDataBase() {
-        val coinFavorite = setupCoinFavoriteData()
-        mCoinDetailsViewModel.addCoinFavorite(coinFavorite)
-        Toast.makeText(requireContext(), "Sucess", Toast.LENGTH_SHORT).show()
-        findNavController().navigate(R.id.action_detailsCoinFragment_to_listCoinFragment)
-    }
-
-    private fun setupCoinFavoriteData(): CoinEntity {
-        val coinDetails = args.coinDetails
-        return CoinEntity(
-            id = 0,
-            assetId = coinDetails.assetId,
-            name = coinDetails.name,
-            volumeHrsUsd = coinDetails.volumeHrsUsd,
-            volumeDayUsd = coinDetails.volumeDayUsd,
-            volumeMthUsd = coinDetails.volumeMthUsd,
-            priceUsd = coinDetails.priceUsd,
-            iconId = coinDetails.iconId!!
-        )
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        getDetailsAndPopulateViews()
+        mCoinDetailsViewModel =
+            ViewModelProvider(this).get(CoinFavoriteDatabaseViewModel::class.java)
+
+        getDetailsApiPopulateViews()
+        setBtnAddFavorite()
     }
 
-    private fun getDetailsAndPopulateViews() {
+    private fun getDetailsApiPopulateViews() {
         val details = args.coinDetails
         binding.textViewPriceCoin.text = details.priceUsd.toString()
         binding.textViewPriceHours.text = details.volumeHrsUsd.toString()
@@ -77,6 +51,46 @@ class CoinDetailsFragment : Fragment() {
         Glide.with(this)
             .load(details.cryptoImage())
             .into(binding.imageViewCoin)
+    }
+
+    private fun setBtnAddFavorite() {
+        binding.btnAddFavorite.setOnClickListener {
+            insertCoinFavoriteDataBase()
+        }
+    }
+
+    private fun insertCoinFavoriteDataBase() {
+        mCoinDetailsViewModel.addCoinFavorite(getCoinFavorite())
+        Toast.makeText(requireContext(), "Coin Add Sucess", Toast.LENGTH_SHORT).show()
+        findNavController().navigate(CoinDetailsFragmentDirections.actionDetailsCoinFragmentToFavoriteCoinFragment())
+        // findNavController().navigate(R.id.action_detailsCoinFragment_to_favoriteCoinFragment)
+    }
+
+    private fun deleteCoinFavorite() {
+        mCoinDetailsViewModel.deleteCoinFavorite(getCoinFavorite())
+        Toast.makeText(requireContext(), "Coin Deleted", Toast.LENGTH_SHORT).show()
+        findNavController().navigate(R.id.action_detailsCoinFragment_to_favoriteCoinFragment)
+    }
+
+    private fun deleteAllCoinFavorite() {
+        mCoinDetailsViewModel.deleteAllCoinsFavorite()
+    }
+
+    private fun getCoinFavorite(): CoinEntity {
+        val coinDetails = args.coinDetails
+        return CoinEntity(
+            assetId = coinDetails.assetId,
+            name = coinDetails.name,
+            volumeHrsUsd = coinDetails.volumeHrsUsd,
+            volumeDayUsd = coinDetails.volumeDayUsd,
+            volumeMthUsd = coinDetails.volumeMthUsd,
+            priceUsd = coinDetails.priceUsd,
+            iconId = coinDetails.iconId!!
+        )
+    }
+
+    private fun getDetailsDatabasePopulateViews() {
+        // TODO:POPULAR AS VIEWS COM INFORMAÇÕES DO BANCO DE DADOS
     }
 
     override fun onDestroyView() {
